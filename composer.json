@@ -1,0 +1,13 @@
+{
+    "name": "itakc/avatar",
+    "authors": [
+        {
+            "name": "mario ciari",
+            "email": "mario.ciari@yahoo.fr"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "symfony/var-dumper": "^5.1"
+    }
+}
