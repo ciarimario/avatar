@@ -1,25 +1,10 @@
 
 <?php
-
+// autoloader
 require './vendor/autoload.php';
-//////////// BUT DE L'EXERCICE /////////////////
-/*
-Créer un Avatar sous forme de grille que l'on pouura afficher côté front
 
-//////////////////////////////////////////
-Lex contraintes
-//////////////////////////////////////////
-Symétrie de l'avatar
 
-//////////////////////////////////////////
-les Technos
-/////////////////////////////////////////
-solution 1 : HTML et CSS pour afficher l'avatar
-solution 2 : SVG
-solution : CANVAS (JS)
-solution 4 : librairie PHP GD ou ImageMagik
 
-*/
 
 //////////////////////////////////////////////
 
@@ -29,18 +14,23 @@ class Avatar {
 
 
     // les proriétés de la class
-    private $gridWidth;
+
+    private $gridWidth; // Nombre de colonnes 
     private $gridHeight;
-    private $colors;
+    private $colors; // tableau des couleurs
+    private $grid;
 
 
     // le constructeur
-    public function __construct(int $gridWidth = 5,array $colors = ['blue','green']) {
+    public function __construct(int $gridWidth = 5,array $colors = ['yellow','purple','red']) {
 
         $this->gridWidth = $gridWidth ;
         $this->gridHeight = $gridWidth;
         $this->colors = $colors;
-        $this->createGrid();
+        $grid = $this->createGrid();
+        $this->grid = $grid ;
+
+        
     }
     /*
     *Méthode qui permet de générer la grille
@@ -68,7 +58,7 @@ class Avatar {
                 $row[$b] = $colors[$index] ;
                 // on assigne la même valeur à la case symétrique
                 $row[($this->gridWidth - $b) -1] = $row[$b] ;
-                
+
                 // on trie dans l'ordre les indices du tableau row
                 ksort($row);
 
@@ -77,12 +67,36 @@ class Avatar {
             }
             array_push($grid,$row);
             
+            
+            
         }
-        dump($grid);
+        return $grid;
+        
+        
     }
+
+    // GETTERS
+    public function getGrid() {
+        return $this->grid ;
+    }
+
+    public function getSizeCell() {
+        return $this->gridWidth ;
+    }
+
+    public function getColors() {
+        return $this->colors;
+    }
+
+    // SETTERS
+
+
 }
 
 
 
-$maGrid = new Avatar(10,['red','brown']);
-//var_dump($maGrid);
+
+
+
+
+

@@ -6,6 +6,11 @@
             "email": "mario.ciari@yahoo.fr"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
     "require": {},
     "require-dev": {
         "symfony/var-dumper": "^5.1"
