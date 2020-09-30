@@ -1,13 +1,26 @@
 <?php
-require 'Avatar.php' ;
-require 'DisplaySvg.php';
+namespace mario ;
+
+// autoloader
+require 'vendor/autoload.php';
+use App\Avatar;
+use App\DisplaySvg;
+
+
+
+
+
+
+
+//require 'Avatar.php' ;
+//require 'DisplaySvg.php';
 
 // Instanciation de la class Avatar
 $avatar = new Avatar(5,['yellow','purple']);
 //dump($avatar->getGrid());
 
 // Instanciation de la class DisplaySvg
-$displaySvg = new DisplaySvg($avatar,50);
+$displaySvg = new DisplaySvg($avatar,100);
 //echo $displaySvg->displaySvg() ;
 
 //echo $displaySvg->displaySvg(5,10);
@@ -21,7 +34,7 @@ $displaySvg = new DisplaySvg($avatar,50);
     <title>Document</title>
 </head>
 <body>
-<svg width='600' height='600' version='1.1' xmlns='http://www.w3.org/2000/svg'>
+<svg width='900' height='900' version='1.1' xmlns='http://www.w3.org/2000/svg'>
   <?php
   
   echo $displaySvg->render();

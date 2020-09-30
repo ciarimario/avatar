@@ -1,6 +1,6 @@
 <?php
 
-
+namespace App;
 
 class DisplaySvg {
 
@@ -10,7 +10,7 @@ class DisplaySvg {
     private $posX = 100 ;
     private $posY=10;
 
-
+    // constructeur
     public function __construct(Avatar $grid, float $sizeCell) {
 
         $this->grid = $grid;
@@ -19,7 +19,11 @@ class DisplaySvg {
         
 
     }
-
+    /*
+    * construit un rectangle svg
+    *
+    * return svg
+    */
     public function displaySvg($posX=10, $cellColor) {
 
         return 
@@ -28,7 +32,11 @@ class DisplaySvg {
         
         ";
     }
-
+    /**
+     * 
+     * return le nombre de svg demandé
+     * 
+     */
     public function render() {
         $result ='';
 
@@ -48,11 +56,11 @@ class DisplaySvg {
         };
         
         return $result ;
-        
-
     }
 
-    // GETTERS
+
+
+    ///////////////////// GETTERS /////////////////////////
     public function getSizeCell() {
         return $this->sizeCell ;
     }
@@ -61,7 +69,7 @@ class DisplaySvg {
         return $this->posX ;
     }
 
-    // SETTERS
+    ///////////////////// SETTERS ////////////////////////////
     public function setPosX($value) {
         $this->posX = $value ;
     }
