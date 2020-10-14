@@ -1,22 +1,42 @@
 <?php
+
 namespace mario ;
 
 // autoloader
 require 'vendor/autoload.php';
-use App\Avatar;
-use App\DisplaySvg;
+
+// inclusion des dépendanceq
+use App\core\Avatar;
+use App\core\DisplaySvg;
+
+// Vérification si les infos ont été transmises
+$size = isset($_GET['size']) ? $_GET['size'] : 4;
+$color = isset($_GET['nb_color']) ? $_GET['nb_color'] : 2;
+
+// tableau des couleurs
+$colors = ['yellow','red','orange','blue','black','white','brown'];
+// couleurs tirées au hasard
+$colorRamdom = [];
+// ramdom des n couleurs
+for($i=0 ; $i<$color ; $i++) {
+   $rand = mt_rand(0,count($colors)-1);
+  
+   do {
+       
+    $rand = mt_rand(0,count($colors)-1);
+
+    }
+   while(in_array($colors[$rand], $colorRamdom));
+   
+       array_push($colorRamdom , $colors[$rand]);
+}
 
 
 
-
-
-
-
-//require 'Avatar.php' ;
-//require 'DisplaySvg.php';
+var_dump($colorRamdom);
 
 // Instanciation de la class Avatar
-$avatar = new Avatar(5,['yellow','purple']);
+$avatar = new Avatar($size ,$colorRamdom);
 //dump($avatar->getGrid());
 
 // Instanciation de la class DisplaySvg
@@ -25,24 +45,11 @@ $displaySvg = new DisplaySvg($avatar,100);
 
 //echo $displaySvg->displaySvg(5,10);
 //echo $displaySvg->render();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<svg width='900' height='900' version='1.1' xmlns='http://www.w3.org/2000/svg'>
-  <?php
-  
-  echo $displaySvg->render();
- 
-  ?>  
-   </svg>
-</body>
-</html>
+
+
+
+// template
+include 'views/index.phtml';
 
 
 

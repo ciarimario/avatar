@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+  <title>Avatar</title>
+</head>
+
+<body>
+  <h1 class="jumbotron text-center bg-dark text-white">Formulaire de génération d'Avater</h1>
+  
+ <div class="container">
+
+    <!--formulaire-->
+    <div class="formulaire">
+    <form action="index.php" method="GET" class="form-group">
+      
+      <p>
+        <label for="nb_color">Nombre de couleurs : </label><select class="form-control" name="nb_color" id="nb_color">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select></p>
+
+      <p>
+      <label for="size">Taille : </label><select class="form-control" name="size" id="size">
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </p>
+      <p><input class="form-control btn btn-primary" type="submit" value="générer"></p>
+    </form>
+  </div>
+    <!--end formulaire-->
+
+    <!--svg-->
+    <div class="bg-dark">
+      <svg width='900' height='900' version='1.1' xmlns='http://www.w3.org/2000/svg'>
+        <?php
+       
+        echo $displaySvg->render();
+        ?>
+    </svg>
+  </div>
+</div>
+<!--fin svg-->
+  
+ 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</body>
+
+</html>
